@@ -12,7 +12,7 @@ class << RSpec::OpenAPI::Extractors::Rails = Object.new
 
     route, path = find_rails_route(fixed_request)
 
-    raise "No route matched for #{fixed_request.request_method} #{fixed_request.path_info}" if route.nil?
+    raise "No route matched for #{fixed_request.method} #{fixed_request.path_info}" if route.nil?
 
     return RSpec::OpenAPI::Extractors::Rack.request_attributes(request, example) unless path
 
